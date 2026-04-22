@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chicago Tasting Trail</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<!-- Includes the Mapbox GL JS CSS stylesheet -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.21.0/mapbox-gl.css" rel="stylesheet">
+<!-- Imports the Mapbox GL JS bundle -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.21.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<h1>Chicago Best Bakers Tasting Tour</h1>
+<p>In July, my brother is competing in Chicago's Best Baker Contest, the city's only amateur baking competition. Inspired by the show The Bear, I decided to develop a list of places my brother can go to cultivate his palette, gain exposure to different flavors, and spark ideas for his own entries. </p>
+<p> Click the markers on the map below to explore places I recommend my brother visit on his tasting tour, and enter the world of Chicago baking with us!</p>
+<script src="scripts.js"></script> 
+  <!-- Make sure the map container has a defined height and width-->
+  <div id="map" style="width: 800px; height: 600px;"></div>
+<script>
+// sets the access token, associating the map with my Mapbox account and its permissions
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZ2llLWRhdmllcyIsImEiOiJjbW5pMnkzNWowOTlkMnFwazhna2ZvZGdtIn0.sOizRPdTjcNQ5rsDklJd2Q';
+
+// creates the map, setting the container to the id of the div I added in the html code, and setting the initial center and zoom level of the map
+const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    center: [-87.68119, 41.91091], // starting position [lng, lat] in the center of my area
+    zoom: 10.04 // starting zoom at a birds-eye city view
+    });
+</script>
+
+</body>
+
+</html>
