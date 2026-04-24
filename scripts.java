@@ -20,7 +20,29 @@
     }
     );
 
+    // create the popup
+    const popup_kasama = new mapboxgl.Popup({ offset: 25 }).setText(
+        'Michelin-starred Filipino restaurant'
+    );
+
+    const markerColor = 'red'; // Set the marker color to red
+    const markerScale = 0.8; // Adjust the scale of the markers
+    const markerCursor = 'pointer'; // Change cursor to pointer on hover
+
     // Create a default Marker and add it to the map.
-    const marker_kasama = new mapboxgl.Marker()
+    const marker_kasama = new mapboxgl.Marker({
+        color: markerColor,
+        scale: markerScale,
+        cursor: markerCursor
+    })
         .setLngLat([-87.675578, 41.908166])
+        .setPopup(popup_kasama)
+        .addTo(map);
+
+    const marker_loaf = new mapboxgl.Marker({
+        color: markerColor,
+        scale: markerScale,
+        cursor: markerCursor
+    })
+        .setLngLat([-87.716933, 41.934617])
         .addTo(map);
