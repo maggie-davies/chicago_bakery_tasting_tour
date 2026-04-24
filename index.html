@@ -4,34 +4,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chicago Tasting Trail: Bakery Edition</title>
+  <title>Chicago Tasting Trail: Bakeries</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.21.0/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.21.0/mapbox-gl.js"></script>
-<style>
-body { margin: 0; padding: 0; }
-#map { position: absolute; top: 0; bottom: 0; width: 100%; }
-</style>
 </head>
 
 <body>
   <div id="map-container"></div>
   <script src="scripts.java"></script>
-  <script>
-// sets the access token, associating the map with my Mapbox account and its permissions
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZ2llLWRhdmllcyIsImEiOiJjbW9jOG13Z3cwOHhhMnFwem5hdzlpdTQ5In0.mHjj1Cv4VWxIRFTlXrDECA';
-const map = new mapboxgl.Map({
-    container: 'map-container', // container ID
-    style: 'mapbox://styles/mapbox/standard', // Using the standard Mapbox style
-    center: [-87.68119, 41.91091], // starting position [lng, lat] in the center of my area
-    zoom: 10.04 // starting zoom at a birds-eye city view
-    });
-</script>
 
-<h1>Chicago Best Bakers Tasting Tour</h1>
-<p>In July, my brother is competing in Chicago's Best Baker Contest, the city's only amateur baking competition. Inspired by the show The Bear, I decided to develop a list of places my brother can go to cultivate his palette, gain exposure to different flavors, and spark ideas for his own entries. </p>
-<p> Click the markers on the map below to explore places I recommend my brother visit on his tasting tour, and enter the world of Chicago baking with us!</p>
- 
+  <h1>Best Bakers Tasting Trail: Chicago 2026</h1>
+  <p>In July, my brother is competing in Chicago's Best Baker Contest, the city's only amateur baking competition.
+    Inspired by the show The Bear, I decided to develop a list of places my brother can go to cultivate his palette,
+    gain exposure to different flavors, and spark ideas for his own entries.
+    In order to be eligible to win Best Baker, bakers have to register for at least five categories of baked goods. My
+    brother is therefore planning to submit a Bread, a Cake, Cookies, a Pastry, and a Pie.
+  </p>
+  <p> Click the markers on the map below to explore places I recommend my brother visit on his tasting tour, and enter
+    the world of Chicago baking with us!</p>
+
 
 </body>
 
