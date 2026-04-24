@@ -4,7 +4,7 @@
       container: 'map-container', // container ID
       style: 'mapbox://styles/mapbox/standard', // Using the standard Mapbox style
       center: [-87.68119, 41.91091], // starting position [long, lat] in the center of my area
-      zoom: 10.04, // starting zoom at a birds-eye city view
+      zoom: 11, // starting zoom at a birds-eye city view
       //Noting other controls for how the map looks on launch 
                 //Bearing:
                 //Pitch: 
@@ -48,6 +48,14 @@
     
     const popup_floriole = new mapboxgl.Popup({ offset: 25 }).setHTML(
         '<b>Floriole Cafe & Bakery</b><br>French pastries with local ingredients -- Top 10 Bakery in the US'
+    );
+
+    const popup_brown = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        '<b>Brown Sugar Bakery</b><br>Southern-style sweet cakes, pies, cakes, and cupcakes'
+    );
+
+    const popup_bang = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        '<b>Bang Bang Pie</b><br>American-style pies' 
     );
 
     const markerColor = 'red'; // Set the marker color to red
@@ -116,4 +124,22 @@
     })
         .setLngLat([-87.659205, 41.92184])
         .setPopup(popup_floriole)
+        .addTo(map);
+
+    const marker_brown = new mapboxgl.Marker({
+        color: markerColor,
+        scale: markerScale,
+        cursor: markerCursor
+    })
+        .setLngLat([-87.659205, 41.92184])
+        .setPopup(popup_brown)
+        .addTo(map);
+
+    const marker_bang = new mapboxgl.Marker({
+        color: markerColor,
+        scale: markerScale,
+        cursor: markerCursor
+    })
+        .setLngLat([-87.659205, 41.92184])
+        .setPopup(popup_bang)
         .addTo(map);
