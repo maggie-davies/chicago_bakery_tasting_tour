@@ -1,0 +1,357 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.675578,
+          41.899699
+        ]
+      },
+      "properties": {
+        "Name": "Kasama",
+        "Blurb": "Michelin-starred Filipino restaurant",
+        "Highlights": "Mango tart; Cardamom Bun",
+        "Neighborhood": "Wicker Park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.716933,
+          41.934617
+        ]
+      },
+      "properties": {
+        "Name": "Loaf Lounge",
+        "Blurb": null,
+        "Highlights": "Chocolate Cake",
+        "Neighborhood": "Logan Square"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.707542,
+          41.910429
+        ]
+      },
+      "properties": {
+        "Name": "Roeser's Bakery",
+        "Blurb": "Locally famous bakery, Chicago's oldest family-owned",
+        "Highlights": "Paczki (Polish Donuts), cakes",
+        "Neighborhood": "Humboldt Park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.63166,
+          41.851384
+        ]
+      },
+      "properties": {
+        "Name": "Chiu Quon Bakery",
+        "Blurb": "Chinatown's oldest bakery",
+        "Highlights": "Pork buns, sponge cakes, sesame balls, egg tart",
+        "Neighborhood": "Chinatown"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.717733,
+          41.928425
+        ]
+      },
+      "properties": {
+        "Name": "Sugar Moon Bakery",
+        "Blurb": "Always a line, open Fri-Sun, sells out by 1 pm",
+        "Highlights": "Cloud cookies, scone, cake",
+        "Neighborhood": "Logan Square"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.678092,
+          41.911087
+        ]
+      },
+      "properties": {
+        "Name": "Mindy's Bakery",
+        "Blurb": "James Beard-awarded pastry chef",
+        "Highlights": null,
+        "Neighborhood": "Wicker Park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.659205,
+          41.92184
+        ]
+      },
+      "properties": {
+        "Name": "Floriole Caf\u00e9 & Bakery",
+        "Blurb": "French pastries with local ingredients -- Top 10 Bakery in the US",
+        "Highlights": null,
+        "Neighborhood": "Lincoln Park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.617113,
+          41.758563
+        ]
+      },
+      "properties": {
+        "Name": "Brown Sugar Bakery",
+        "Blurb": null,
+        "Highlights": "Southern-style sweet cakes, pies, cakes, cupcakes",
+        "Neighborhood": "Grand Crossing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.697014,
+          41.919089
+        ]
+      },
+      "properties": {
+        "Name": "Bang Bang Pie",
+        "Blurb": "American-style pies",
+        "Highlights": "Pies",
+        "Neighborhood": "Logan Square"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.655637,
+          41.891306
+        ]
+      },
+      "properties": {
+        "Name": "D'Amato's Bakery",
+        "Blurb": "Legendary Italian bakery",
+        "Highlights": "Bread",
+        "Neighborhood": "West Loop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.669937,
+          41.915896
+        ]
+      },
+      "properties": {
+        "Name": "Dan the Baker/Bad Butter",
+        "Blurb": "Chef baker who sells out of Emily's Hotel",
+        "Highlights": null,
+        "Neighborhood": "Wicker Park"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.674198,
+          41.947198
+        ]
+      },
+      "properties": {
+        "Name": "Loba",
+        "Blurb": null,
+        "Highlights": "Unique and rotating menu",
+        "Neighborhood": "Lake View"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.648853,
+          41.93535
+        ]
+      },
+      "properties": {
+        "Name": "Jennivee's",
+        "Blurb": null,
+        "Highlights": "Ube cake",
+        "Neighborhood": "Lake View"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.697157,
+          41.899447
+        ]
+      },
+      "properties": {
+        "Name": "Spinning J",
+        "Blurb": null,
+        "Highlights": "Pies",
+        "Neighborhood": "Ukrainian Village"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.634381,
+          41.910527
+        ]
+      },
+      "properties": {
+        "Name": "La Fournette",
+        "Blurb": "French bakery owned by a master baker",
+        "Highlights": null,
+        "Neighborhood": "Old Town"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.625247,
+          41.900226
+        ]
+      },
+      "properties": {
+        "Name": "Henrickx Belgian Bread Crafter",
+        "Blurb": "Belgian pastries and croissants",
+        "Highlights": null,
+        "Neighborhood": "Gold Coast"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.678861,
+          41.966306
+        ]
+      },
+      "properties": {
+        "Name": "Del Sur Bakery",
+        "Blurb": "Filipino-influenced, 2025 bakery",
+        "Highlights": null,
+        "Neighborhood": "Ravenswood"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.657792,
+          41.841448
+        ]
+      },
+      "properties": {
+        "Name": "Fat Peach",
+        "Blurb": "Caf\u00e9 culture in Mexico City/Oaxaca",
+        "Highlights": "Strawberry milk croissants",
+        "Neighborhood": "Bridgeport"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.642022,
+          41.87783
+        ]
+      },
+      "properties": {
+        "Name": "Lou Mitchell's",
+        "Blurb": "Classic diner with pie and pastries",
+        "Highlights": null,
+        "Neighborhood": "Loop"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.630265,
+          41.890181
+        ]
+      },
+      "properties": {
+        "Name": "Firecakes Donuts",
+        "Blurb": "Top Chicago donuts",
+        "Highlights": "Donuts",
+        "Neighborhood": "River North"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.704377,
+          42.070491
+        ]
+      },
+      "properties": {
+        "Name": "The Original Pancake House",
+        "Blurb": "We know it",
+        "Highlights": "Dutch baby",
+        "Neighborhood": "Wilmette"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.687248,
+          41.917159
+        ]
+      },
+      "properties": {
+        "Name": "Margie's Candies",
+        "Blurb": "50's-style diner with ice cream sundaes",
+        "Highlights": "Ice Cream Sundaes/Hot fudge",
+        "Neighborhood": "Bucktown"
+      }
+    }
+  ]
+}

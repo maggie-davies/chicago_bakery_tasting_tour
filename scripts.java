@@ -20,9 +20,34 @@
     }
     );
 
-    // create the popup
-    const popup_kasama = new mapboxgl.Popup({ offset: 25 }).setText(
-        'Michelin-starred Filipino restaurant'
+       // Create the popups for each marker with the name and description
+       // Popup formatting completed with help from the AI chatbot, asking it to add a bolded title
+    const popup_kasama = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        '<b>Kasama</b><br>Michelin-starred Filipino restaurant'
+    );
+
+    const popup_loaf = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        '<b>Loaf Lounge</b><br>Bakery known for its chocolate cake'
+    );
+
+    const popup_roeser = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        '<b>Roeser\'s Bakery</b><br>Chicago\'s oldest family-owned bakery'
+    );
+
+    const popup_chiuquon = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        '<b>Chiu Quon Bakery</b><br>Chinatown\'s oldest bakery'
+    );
+
+    const popup_sugar = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        '<b>Sugar Bowl</b><br>Always a line, open Fri-Sun, sells out by 1 pm'
+    );
+
+    const popup_mindy = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        '<b>Mindy\'s Bakery</b><br>James Beard-awarded pastry chef'
+    );
+    
+    const popup_floriole = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        '<b>Floriole Cafe & Bakery</b><br>French pastries with local ingredients -- Top 10 Bakery in the US'
     );
 
     const markerColor = 'red'; // Set the marker color to red
@@ -45,4 +70,50 @@
         cursor: markerCursor
     })
         .setLngLat([-87.716933, 41.934617])
+        .setPopup(popup_loaf)
+        .addTo(map);
+
+    const marker_roeser = new mapboxgl.Marker({
+        color: markerColor,
+        scale: markerScale,
+        cursor: markerCursor
+    })
+        .setLngLat([-87.707542, 41.910429])
+        .setPopup(popup_roeser)
+        .addTo(map);
+
+    const marker_chiuquon = new mapboxgl.Marker({
+        color: markerColor,
+        scale: markerScale,
+        cursor: markerCursor
+    })
+        .setLngLat([-87.63166, 41.851384])
+        .setPopup(popup_chiuquon)
+        .addTo(map);
+    
+    const marker_sugar = new mapboxgl.Marker({
+        color: markerColor,
+        scale: markerScale,
+        cursor: markerCursor
+    })
+        .setLngLat([-87.717733, 41.928425])
+        .setPopup(popup_sugar)
+        .addTo(map);
+
+    const marker_mindy = new mapboxgl.Marker({
+        color: markerColor,
+        scale: markerScale,
+        cursor: markerCursor
+    })
+        .setLngLat([-87.678092, 41.911087])
+        .setPopup(popup_mindy)
+        .addTo(map);
+
+    const marker_floriole = new mapboxgl.Marker({
+        color: markerColor,
+        scale: markerScale,
+        cursor: markerCursor
+    })
+        .setLngLat([-87.659205, 41.92184])
+        .setPopup(popup_floriole)
         .addTo(map);
