@@ -5,6 +5,11 @@ const map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/standard', // Using the standard Mapbox style
     center: [-87.73285, 41.89512], // starting position [long, lat] in the center of my area
     zoom: 10.27, // starting zoom at a birds-eye city view
+    maxBounds: [
+        [-88.35, 41.15], // southwest corner
+        [-87.00, 42.30]  // northeast corner
+    ],
+    
         config: {
         // Mapbox GL JS configuration options
         basemap: {
