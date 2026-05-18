@@ -3,12 +3,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZ2llLWRhdmllcyIsImEiOiJjbW9jOG13Z3cwOHhhM
 const map = new mapboxgl.Map({
     container: 'map-container', // container ID
     style: 'mapbox://styles/mapbox/standard', // Using the standard Mapbox style
-    center: [-87.68119, 41.91091], // starting position [long, lat] in the center of my area
-    zoom: 11, // starting zoom at a birds-eye city view
-    //Noting other controls for how the map looks on launch 
-    //Bearing:
-    //Pitch: 
-    config: {
+    center: [-87.73285, 41.89512], // starting position [long, lat] in the center of my area
+    zoom: 10.27, // starting zoom at a birds-eye city view
+        config: {
         // Mapbox GL JS configuration options
         basemap: {
             showPointOfInterestLabels: false,
@@ -21,128 +18,47 @@ const map = new mapboxgl.Map({
 );
 
 // Create the popups for each marker with the name and description
-// I started to do this via my geojson (see the scripts.experimental.js file), but I had trouble
-// getting the popups to work, so I hardcoded them in here instead. I will continue working on this going forward.
-// I also kept the popups simple, but would like to add tags and details for recommended food at each place, a photo, and more interactive elements in the future.
-// Popup formatting completed with help from the AI chatbot, asking it to add a bolded title
-const popup_kasama = new mapboxgl.Popup({ offset: 25 }).setHTML(
-    '<b>Kasama</b><br>Michelin-starred Filipino restaurant'
-);
+map.on('load',() => {
+map.addSource ('bakeries', {
+    type: 'geojson',
+    data: const_bakeries,
+});
 
-const popup_loaf = new mapboxgl.Popup({ offset: 25 }).setHTML(
-    '<b>Loaf Lounge</b><br>Bakery known for its chocolate cake'
-);
+const bakeryFeatures = const_bakeries.features;
 
-const popup_roeser = new mapboxgl.Popup({ offset: 25 }).setHTML(
-    '<b>Roeser\'s Bakery</b><br>Chicago\'s oldest family-owned bakery'
-);
+bakeryFeatures.forEach(feature => {
+    const coordinates = feature.geometry.coordinates;
+    const name = feature.properties.name;
+    const blurb = feature.properties.blurb;
+    const tryThe = feature.properties.try;
+    const hours = feature.properties.hours;
+    const website = feature.properties.website;
+    const tagsString = feature.properties.tags || '';
 
-const popup_chiuquon = new mapboxgl.Popup({ offset: 25 }).setHTML(
-    '<b>Chiu Quon Bakery</b><br>Chinatown\'s oldest bakery'
-);
+    const tags = tagsString.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
+    const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2'];
+    const tagsHTML = tags.map((tag, index) => {
+        const color = colors[index % colors.length];
+        return `<span style="display: inline-block; background-color: ${color}; color: white; padding: 6px 12px; border-radius: 20px; margin-right: 6px; margin-bottom: 6px; font-size: 12px; font-weight: 500;">${tag}</span>`;
+    }).join('');
 
-const popup_sugar = new mapboxgl.Popup({ offset: 25 }).setHTML(
-    '<b>Sugar Bowl</b><br>Always a line, open Fri-Sun, sells out by 1 pm'
-);
+    const popup = new mapboxgl.Popup({ offset: 25 })
+        .setHTML(`
+            <div style="max-width: 300px;">
+                <h3 style="margin: 0 0 8px 0;">${name}</h3>
+                <p style="margin: 0 0 12px 0; font-size: 14px;">${blurb}</p>
+                <p style="margin: 0 0 8px 0; font-size: 12px;"><strong>Try:</strong> ${tryThe}</p>
+                <p style="margin: 0 0 8px 0; font-size: 12px;"><strong>Hours:</strong> ${hours}</p>
+                <p style="margin: 0 0 12px 0; font-size: 12px;"><a href="${website}" target="_blank" style="color: #FF69B4;">Visit Website</a></p>
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #eee;">
+                    ${tagsHTML}
+                </div>
+            </div>
+        `);
 
-const popup_mindy = new mapboxgl.Popup({ offset: 25 }).setHTML(
-    '<b>Mindy\'s Bakery</b><br>James Beard-awarded pastry chef'
-);
-
-const popup_floriole = new mapboxgl.Popup({ offset: 25 }).setHTML(
-    '<b>Floriole Cafe & Bakery</b><br>French pastries with local ingredients -- Top 10 Bakery in the US'
-);
-
-const popup_brown = new mapboxgl.Popup({ offset: 25 }).setHTML(
-    '<b>Brown Sugar Bakery</b><br>Southern-style sweet cakes, pies, cakes, and cupcakes'
-);
-
-const popup_bang = new mapboxgl.Popup({ offset: 25 }).setHTML(
-    '<b>Bang Bang Pie</b><br>American-style pies'
-);
-
-const markerColor = 'red'; // Set the marker color to red
-const markerScale = 0.8; // Adjust the scale of the markers
-const markerCursor = 'pointer'; // Change cursor to pointer on hover
-
-// Create a default Marker and add it to the map.
-const marker_kasama = new mapboxgl.Marker({
-    color: markerColor,
-    scale: markerScale,
-    cursor: markerCursor
-})
-    .setLngLat([-87.675578, 41.908166])
-    .setPopup(popup_kasama)
-    .addTo(map);
-
-const marker_loaf = new mapboxgl.Marker({
-    color: markerColor,
-    scale: markerScale,
-    cursor: markerCursor
-})
-    .setLngLat([-87.716933, 41.934617])
-    .setPopup(popup_loaf)
-    .addTo(map);
-
-const marker_roeser = new mapboxgl.Marker({
-    color: markerColor,
-    scale: markerScale,
-    cursor: markerCursor
-})
-    .setLngLat([-87.707542, 41.910429])
-    .setPopup(popup_roeser)
-    .addTo(map);
-
-const marker_chiuquon = new mapboxgl.Marker({
-    color: markerColor,
-    scale: markerScale,
-    cursor: markerCursor
-})
-    .setLngLat([-87.63166, 41.851384])
-    .setPopup(popup_chiuquon)
-    .addTo(map);
-
-const marker_sugar = new mapboxgl.Marker({
-    color: markerColor,
-    scale: markerScale,
-    cursor: markerCursor
-})
-    .setLngLat([-87.717733, 41.928425])
-    .setPopup(popup_sugar)
-    .addTo(map);
-
-const marker_mindy = new mapboxgl.Marker({
-    color: markerColor,
-    scale: markerScale,
-    cursor: markerCursor
-})
-    .setLngLat([-87.678092, 41.911087])
-    .setPopup(popup_mindy)
-    .addTo(map);
-
-const marker_floriole = new mapboxgl.Marker({
-    color: markerColor,
-    scale: markerScale,
-    cursor: markerCursor
-})
-    .setLngLat([-87.659205, 41.92184])
-    .setPopup(popup_floriole)
-    .addTo(map);
-
-const marker_brown = new mapboxgl.Marker({
-    color: markerColor,
-    scale: markerScale,
-    cursor: markerCursor
-})
-    .setLngLat([-87.659205, 41.92184])
-    .setPopup(popup_brown)
-    .addTo(map);
-
-const marker_bang = new mapboxgl.Marker({
-    color: markerColor,
-    scale: markerScale,
-    cursor: markerCursor
-})
-    .setLngLat([-87.659205, 41.92184])
-    .setPopup(popup_bang)
-    .addTo(map);
+    new mapboxgl.Marker()
+        .setLngLat(coordinates)
+        .setPopup(popup)
+        .addTo(map);
+});
+});
