@@ -1,3 +1,8 @@
+/* styling the webpage with a clean and simple design, using a light color scheme to create a welcoming atmosphere for users.
+The header is styled to stand out against the map background, with a semi-transparent white background and subtle shadow for readability.
+The text is formatted for clarity and visual appeal, with a sans-serif font.
+The map container is set to take up the full height of the viewport to ensure an immersive experience when viewing the bakery locations. */
+
 body, html {
     height: 100%;
     margin: 0;

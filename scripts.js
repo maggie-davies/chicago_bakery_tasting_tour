@@ -33,6 +33,9 @@ bakeryFeatures.forEach(feature => {
     const tryThe = feature.properties.try;
     const hours = feature.properties.hours;
     const website = feature.properties.website;
+    //adding a tag string for the pills. As tags are listed in the geojson file as a comma-separated string,
+    // I split the string into an array of tags, trim any whitespace, and filter out any empty tags.
+    // Then I create HTML for each tag with a colored background and white text, and join them together to display in the popup.
     const tagsString = feature.properties.tags || '';
 
     const tags = tagsString.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
@@ -42,6 +45,7 @@ bakeryFeatures.forEach(feature => {
         return `<span style="display: inline-block; background-color: ${color}; color: white; padding: 6px 12px; border-radius: 20px; margin-right: 6px; margin-bottom: 6px; font-size: 12px; font-weight: 500;">${tag}</span>`;
     }).join('');
 
+    //styling the popup box and content with the name, blurb, recommended dishes, hours, website, and tags for each bakery
     const popup = new mapboxgl.Popup({ offset: 25 })
         .setHTML(`
             <div style="max-width: 300px;">
@@ -56,6 +60,7 @@ bakeryFeatures.forEach(feature => {
             </div>
         `);
 
+    //Adding the marker to the map with the popup for each bakery location
     new mapboxgl.Marker()
         .setLngLat(coordinates)
         .setPopup(popup)
