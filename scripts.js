@@ -30,11 +30,14 @@ map.addSource ('bakeries', {
 });
 
 const bakeryFeatures = const_bakeries.features;
+const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2'];
+const tagColorMap = {};
 
 bakeryFeatures.forEach(feature => {
     const coordinates = feature.geometry.coordinates;
     const name = feature.properties.name;
     const blurb = feature.properties.blurb;
+    const cuisine = feature.properties.cuisine;
     const tryThe = feature.properties.try;
     const hours = feature.properties.hours;
     const website = feature.properties.website;
@@ -42,23 +45,37 @@ bakeryFeatures.forEach(feature => {
     // I split the string into an array of tags, trim any whitespace, and filter out any empty tags.
     // Then I create HTML for each tag with a colored background and white text, and join them together to display in the popup.
     const tagsString = feature.properties.tags || '';
-
     const tags = tagsString.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
-    const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2'];
-    const tagsHTML = tags.map((tag, index) => {
-        const color = colors[index % colors.length];
+    
+    const tagsHTML = tags.map(tag => {
+        const key = tag.toLowerCase();
+        if (!tagColorMap[key]) {
+            const assigned = Object.keys(tagColorMap).length;
+            tagColorMap[key] = colors[assigned % colors.length];
+        }
+        const color = tagColorMap[key];
         return `<span style="display: inline-block; background-color: ${color}; color: white; padding: 6px 12px; border-radius: 20px; margin-right: 6px; margin-bottom: 6px; font-size: 12px; font-weight: 500;">${tag}</span>`;
     }).join('');
 
-    //styling the popup box and content with the name, blurb, recommended dishes, hours, website, and tags for each bakery
+    const imageKeys = ['img1', 'img2', 'img3', 'img4', 'img5'];
+    const imageUrls = imageKeys.map(key => feature.properties[key]).filter(url => url && url.length > 0);
+    const galleryHTML = imageUrls.length
+        ? `<div style="display: flex; gap: 6px; overflow-x: auto; margin: 0 0 12px 0; padding-bottom: 6px;">
+                ${imageUrls.map(url => `<img src="${url}" style="width: 80px; height: 60px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;">`).join('')}
+           </div>`
+        : '';
+
+    //styling the popup box and content with the name, blurb, recommended tasting items, hours, website, and tags for each bakery
     const popup = new mapboxgl.Popup({ offset: 25 })
         .setHTML(`
             <div style="max-width: 300px;">
                 <h3 style="margin: 0 0 8px 0;">${name}</h3>
                 <p style="margin: 0 0 12px 0; font-size: 14px;">${blurb}</p>
+                <p style="margin: 0 0 8px 0; font-size: 12px;"><strong>Cuisine:</strong> ${cuisine}</p>
                 <p style="margin: 0 0 8px 0; font-size: 12px;"><strong>Try:</strong> ${tryThe}</p>
                 <p style="margin: 0 0 8px 0; font-size: 12px;"><strong>Hours:</strong> ${hours}</p>
                 <p style="margin: 0 0 12px 0; font-size: 12px;"><a href="${website}" target="_blank" style="color: #FF69B4;">Visit Website</a></p>
+                ${galleryHTML}
                 <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #eee;">
                     ${tagsHTML}
                 </div>
